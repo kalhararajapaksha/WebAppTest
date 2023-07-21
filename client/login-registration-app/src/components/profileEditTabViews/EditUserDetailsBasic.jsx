@@ -32,9 +32,7 @@ const EditUserDetailsBasic = ({ formData, handleChange, errors }) => {
   
   return (
     <div>
-      {/* Implement form fields for editing basic user details */}
       <div>
-        {/* Profile Picture */}
         <div className="mb-4">
           <img
             src={formData.profileImage}
@@ -51,7 +49,6 @@ const EditUserDetailsBasic = ({ formData, handleChange, errors }) => {
             onChange={handleImageChange}
           />
         </div>
-        {/* Basic User Details */}
         <div className="form-group">
           <label htmlFor="salutation">Salutation:</label>
           <select

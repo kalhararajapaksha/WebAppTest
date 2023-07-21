@@ -1,4 +1,3 @@
-// UserDetailsAdditional.js
 import React from 'react';
 
 const UserDetailsAdditional = ({ user }) => {

@@ -3,7 +3,6 @@ import React from 'react';
 const EditUserDetailsPreferences = ({ formData, handleChange, errors }) => {
   return (
     <div>
-      {/* Implement form fields for editing personal preferences */}
       <div className="form-group">
         <label htmlFor="hobbies">Hobbies and Interests:</label>
         <input
@@ -12,7 +11,7 @@ const EditUserDetailsPreferences = ({ formData, handleChange, errors }) => {
           name="hobbies"
           value={formData.hobbies}
           onChange={handleChange}
-          placeholder="Hobbies and Interests"
+          placeholder="Ex: Reading, Traveling"
         />
         {errors.hobbies && <span className="error">{errors.hobbies}</span>}
       </div>
@@ -24,7 +23,7 @@ const EditUserDetailsPreferences = ({ formData, handleChange, errors }) => {
           name="favoriteSports"
           value={formData.favoriteSports}
           onChange={handleChange}
-          placeholder="Favorite Sports"
+          placeholder="Ex: Soccer, Cricket"
         />
         {errors.favoriteSports && <span className="error">{errors.favoriteSports}</span>}
       </div>
@@ -36,7 +35,7 @@ const EditUserDetailsPreferences = ({ formData, handleChange, errors }) => {
           name="musicGenres"
           value={formData.musicGenres}
           onChange={handleChange}
-          placeholder="Preferred Music Genre(s)"
+          placeholder="Ex: Rock, Pop"
         />
         {errors.musicGenres && <span className="error">{errors.musicGenres}</span>}
       </div>
@@ -48,7 +47,7 @@ const EditUserDetailsPreferences = ({ formData, handleChange, errors }) => {
           name="favoriteMovies"
           value={formData.favoriteMovies}
           onChange={handleChange}
-          placeholder="Favorite Movie/TV Show(s)"
+          placeholder="Ex: Action, Comedy"
         />
         {errors.favoriteMovies && <span className="error">{errors.favoriteMovies}</span>}
       </div>

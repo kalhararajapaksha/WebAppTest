@@ -3,7 +3,6 @@ import React from 'react';
 const EditUserDetailsAdditional = ({ formData, handleChange, errors }) => {
   return (
     <div>
-      {/* Implement form fields for editing additional user details */}
       <div className="form-group">
         <label htmlFor="mobileNumber">Mobile Number:</label>
         <input
