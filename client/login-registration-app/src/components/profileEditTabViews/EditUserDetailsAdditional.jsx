@@ -30,14 +30,21 @@ const EditUserDetailsAdditional = ({ formData, handleChange, errors }) => {
       </div>
       <div className="form-group">
         <label htmlFor="country">Country:</label>
-        <input
+        {/* <input
           type="text"
           id="country"
           name="country"
           value={formData.country}
           onChange={handleChange}
           placeholder="Country"
-        />
+        /> */}
+          <select id="country" name="country" value={formData.country} onChange={handleChange}>
+          <option value="Germany">Germany</option>
+          <option value="Ireland">Ireland</option>
+          <option value="Italy">Italy</option>
+          <option value="Sri Lanka">Sri Lanka</option>
+          <option value="Australia">Australia</option>
+        </select>
         {errors.country && <span className="error">{errors.country}</span>}
       </div>
       <div className="form-group">
@@ -54,14 +61,21 @@ const EditUserDetailsAdditional = ({ formData, handleChange, errors }) => {
       </div>
       <div className="form-group">
         <label htmlFor="nationality">Nationality:</label>
-        <input
+        {/* <input
           type="text"
           id="nationality"
           name="nationality"
           value={formData.nationality}
           onChange={handleChange}
           placeholder="Nationality"
-        />
+        /> */}
+        <select id="nationality" name="nationality" value={formData.nationality} onChange={handleChange}>
+          <option value="German">German</option>
+          <option value="Irish">Irish</option>
+          <option value="Italian">Italian</option>
+          <option value="Sri Lankan">Sri Lankan</option>
+          <option value="Australian">Australian</option>
+        </select>
         {errors.nationality && <span className="error">{errors.nationality}</span>}
       </div>
       <div className="form-group">

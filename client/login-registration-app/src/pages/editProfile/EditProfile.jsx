@@ -92,11 +92,11 @@ const EditProfile = () => {
     }
 
     if (!formData.homeAddress) {
-      newErrors.mobileNumber = 'Home Address is required';
+      newErrors.homeAddress = 'Home Address is required';
     }
 
     if (!formData.postalCode) {
-      newErrors.mobileNumber = 'Postal Code is required';
+      newErrors.postalCode = 'Postal Code is required';
     }
 
 
