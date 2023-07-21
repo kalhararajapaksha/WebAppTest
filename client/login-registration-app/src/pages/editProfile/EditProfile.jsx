@@ -77,7 +77,6 @@ const EditProfile = () => {
     if (!formData.firstName) {
       newErrors.firstName = 'First name is required';
     }
-
     if (!formData.lastName) {
       newErrors.lastName = 'Last name is required';
     }
@@ -86,6 +85,18 @@ const EditProfile = () => {
       newErrors.email = 'Email is required';
     } else if (!isValidEmail(formData.email)) {
       newErrors.email = 'Invalid email format';
+    }
+
+    if (!formData.mobileNumber) {
+      newErrors.mobileNumber = 'Mobile Number is required';
+    }
+
+    if (!formData.homeAddress) {
+      newErrors.mobileNumber = 'Home Address is required';
+    }
+
+    if (!formData.postalCode) {
+      newErrors.mobileNumber = 'Postal Code is required';
     }
 
 
@@ -116,14 +127,13 @@ const EditProfile = () => {
           ...formData,
           userId: userId,
         };
-        // Call the saveUserToFirestore function with the formData and userId
+        
         saveUserToFirestore(formDataWithUserId);
       } else {
-        console.log('User is not logged in.'); // Handle the case when the user is not logged in
+        console.log('User is not logged in.'); 
       }
     } else {
       console.log('Please fill in the required fields correctly.');
-      // Implement any feedback to the user about invalid form data
     }
   };
   return (
