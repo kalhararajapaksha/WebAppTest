@@ -3,6 +3,8 @@ import { BrowserRouter  } from 'react-router-dom';
 import RouterConfig from './routes/router.config';
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAD5DxFXi2Hmyq7oU2pGvsv-Zelxz-BJDk",
@@ -29,7 +31,7 @@ const App = () => {
 
   return (
     <>
-    
+     <ToastContainer />
       <BrowserRouter>
         <RouterConfig />
       </BrowserRouter>

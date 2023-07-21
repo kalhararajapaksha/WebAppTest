@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import { useNavigate } from 'react-router-dom';
+import {  toast } from 'react-toastify';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -12,25 +13,27 @@ const LoginForm = () => {
     e.preventDefault();
     try {
       await firebase.auth().signInWithEmailAndPassword(email, password);
-      console.log("success");
+      toast.success("Successfully Loggin")
       navigate(`/dashboard`);
     } catch (error) {
-      console.error(error);
+      toast.error("Your user ID and/or password does not match");
     }
   };
 
   return (
     <form onSubmit={handleSubmit} className="my-5">
-      <h2 className="mb-4">Login</h2>
-      <div className="mb-3">
-        <label htmlFor="email" className="form-label">Email:</label>
+      <h2 className="mb-4 login-text">Login</h2>
+      <div className="mb-3 email-text-wrapper">
+        <label htmlFor="email" className="form-label me-3">Email:</label>
         <input type="email" className="form-control" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
       </div>
-      <div className="mb-3">
-        <label htmlFor="password" className="form-label">Password:</label>
+      <div className="mt-3 email-text-wrapper">
+        <label htmlFor="password" className="form-label me-3">Password:</label>
         <input type="password" className="form-control" id="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
       </div>
-      <button type="submit" className="btn btn-primary">Login</button>
+      <div className="login-btn-wrapper">
+        <button type="submit" className="btn btn-primary mt-3 logging-btn">Login</button>
+      </div>
     </form>
   );
 };
