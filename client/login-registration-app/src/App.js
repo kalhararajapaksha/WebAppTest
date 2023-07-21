@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { BrowserRouter  } from 'react-router-dom';
+import RouterConfig from './routes/router.config';
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
 
-function App() {
+const firebaseConfig = {
+  apiKey: "AIzaSyAD5DxFXi2Hmyq7oU2pGvsv-Zelxz-BJDk",
+  authDomain: "reactapp-fa184.firebaseapp.com",
+  projectId: "reactapp-fa184",
+  storageBucket: "reactapp-fa184.appspot.com",
+  messagingSenderId: "737351696275",
+  appId: "1:737351696275:web:b4323c918f024ac0823266"
+};
+
+firebase.initializeApp(firebaseConfig);
+const App = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogin = (userData) => {
+    
+    setIsLoggedIn(true);
+  };
+
+  const handleRegister = (userData) => {
+    
+    handleLogin(userData);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    
+      <BrowserRouter>
+        <RouterConfig />
+      </BrowserRouter>
+
+    </>
   );
-}
+};
 
 export default App;

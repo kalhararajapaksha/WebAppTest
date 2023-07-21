@@ -1,0 +1,13 @@
+/* EditUserDetailsBasic.css */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    width: 500px;
+  }
+  
+  .form-group label {
+    margin-bottom: 0.5rem;
+  }
+  
