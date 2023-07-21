@@ -1,6 +1,10 @@
 import React from 'react';
 
 const EditUserDetailsSpouse = ({ formData, handleChange, errors }) => {
+
+  if (formData.maritalStatus === 'Single') {
+    return null;
+  }
   const getSpouseSalutation = () => {
     if (formData.gender === 'Male' && formData.maritalStatus === 'Married') {
       return 'Mr.';

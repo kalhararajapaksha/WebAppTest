@@ -74,7 +74,7 @@ const Profile = () => {
     <MainLayout>
     <div>
       <h1>My Profile</h1>
-      <TabView>
+      <TabView maritalStatus={user.maritalStatus}>
         <TabView.Tab label="Basic Details">
           <UserDetailsBasic user={user} />
         </TabView.Tab>

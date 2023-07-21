@@ -64,8 +64,6 @@ const EditProfile = () => {
     }));
   };
 
-  const isMarried = false; 
-
   const isValidEmail = (email) => {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailPattern.test(email);
@@ -136,18 +134,19 @@ const EditProfile = () => {
       console.log('Please fill in the required fields correctly.');
     }
   };
+  
   return (
     <MainLayout>
       <div>
         <h1>Edit Profile</h1>
-        <TabView>
+        <TabView maritalStatus={formData.maritalStatus}>
           <TabView.Tab label="Basic Details">
             <EditUserDetailsBasic formData={formData} handleChange={handleChange} errors={errors} />
           </TabView.Tab>
           <TabView.Tab label="Additional Details">
             <EditUserDetailsAdditional formData={formData} handleChange={handleChange} errors={errors} />
           </TabView.Tab>
-          <TabView.Tab label="Spouse Details" showWhen={() => isMarried}>
+          <TabView.Tab label="Spouse Details">
             <EditUserDetailsSpouse formData={formData} handleChange={handleChange} errors={errors} />
           </TabView.Tab>
           <TabView.Tab label="Personal Preferences">
