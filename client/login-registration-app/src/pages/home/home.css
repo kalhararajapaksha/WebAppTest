@@ -4,8 +4,8 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 500px; /* You can adjust the maximum width as per your preference */
-    margin: 0 auto; /* This will center the container horizontally */
+    max-width: 500px; 
+    margin: 0 auto; 
   }
   
 

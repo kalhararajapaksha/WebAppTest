@@ -64,17 +64,16 @@ const EditProfile = () => {
     }));
   };
 
-  const isMarried = false; // Assuming the user is married for demonstration purposes
+  const isMarried = false; 
 
   const isValidEmail = (email) => {
-    // Basic email format validation using regex
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailPattern.test(email);
   };
 
   const validateForm = () => {
     const newErrors = {};
-    // Perform validation checks for each field here
+
     if (!formData.firstName) {
       newErrors.firstName = 'First name is required';
     }
@@ -89,10 +88,10 @@ const EditProfile = () => {
       newErrors.email = 'Invalid email format';
     }
 
-    // Add other validation checks for additional fields as needed
+
 
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0; // Return true if there are no errors
+    return Object.keys(newErrors).length === 0; 
   };
   const saveUserToFirestore = async (userObject) => {
     try {
@@ -100,10 +99,10 @@ const EditProfile = () => {
       console.log(response.data);
       const userId = response.data;
       console.log('User saved to Firestore with ID:');
-      // Implement any further actions or feedback to the user after successful save
+      
     } catch (error) {
       console.error('Error saving user to Firestore edu:', error);
-      // Implement error handling and display appropriate error messages to the user
+    
     }
   };
 
