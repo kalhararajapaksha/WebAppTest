@@ -135,6 +135,10 @@ const EditProfile = () => {
     }
   };
   
+  const handleCancel = () => {
+    handleChange(false);
+  };
+
   return (
     <MainLayout>
       <div>
@@ -154,9 +158,12 @@ const EditProfile = () => {
           </TabView.Tab>
         </TabView>
 
-        <div className="mt-4">
-          <button className="btn btn-primary" onClick={handleSaveProfile}>
+        <div className="mt-3 edit-profile-btn">
+          <button className="btn btn-primary save-btn me-3" onClick={handleSaveProfile}>
             Save Profile
+          </button>
+          <button  className="btn btn-primary cancel-btn" onClick={handleCancel}>
+            cancel
           </button>
         </div>
       </div>

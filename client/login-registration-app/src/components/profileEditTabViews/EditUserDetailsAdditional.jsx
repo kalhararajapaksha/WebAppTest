@@ -2,8 +2,8 @@ import React from 'react';
 
 const EditUserDetailsAdditional = ({ formData, handleChange, errors }) => {
   return (
-    <div>
-      <div className="form-group">
+    <div className="additional-details-form">
+      <div className="form-group wr-edit-form-input mb-4">
         <label htmlFor="mobileNumber">Mobile Number:</label>
         <input
           type="text"
@@ -12,10 +12,11 @@ const EditUserDetailsAdditional = ({ formData, handleChange, errors }) => {
           value={formData.mobileNumber}
           onChange={handleChange}
           placeholder="Mobile Number"
+          className="additonal-detail-edit-form"
         />
         {errors.mobileNumber && <span className="error">{errors.mobileNumber}</span>}
       </div>
-      <div className="form-group">
+      <div className="form-group wr-edit-form-input mb-4">
         <label htmlFor="homeAddress">Home Address:</label>
         <input
           type="text"
@@ -24,19 +25,12 @@ const EditUserDetailsAdditional = ({ formData, handleChange, errors }) => {
           value={formData.homeAddress}
           onChange={handleChange}
           placeholder="Home Address"
+          className="additonal-detail-edit-form"
         />
         {errors.homeAddress && <span className="error">{errors.homeAddress}</span>}
       </div>
-      <div className="form-group">
+      <div className="form-group wr-edit-form-input mb-4">
         <label htmlFor="country">Country:</label>
-        {/* <input
-          type="text"
-          id="country"
-          name="country"
-          value={formData.country}
-          onChange={handleChange}
-          placeholder="Country"
-        /> */}
           <select id="country" name="country" value={formData.country} onChange={handleChange}>
           <option value="Germany">Germany</option>
           <option value="Ireland">Ireland</option>
@@ -46,7 +40,7 @@ const EditUserDetailsAdditional = ({ formData, handleChange, errors }) => {
         </select>
         {errors.country && <span className="error">{errors.country}</span>}
       </div>
-      <div className="form-group">
+      <div className="form-group wr-edit-form-input mb-4">
         <label htmlFor="postalCode">Postal Code:</label>
         <input
           type="text"
@@ -55,19 +49,12 @@ const EditUserDetailsAdditional = ({ formData, handleChange, errors }) => {
           value={formData.postalCode}
           onChange={handleChange}
           placeholder="Postal Code"
+          className="additonal-detail-edit-form"
         />
         {errors.postalCode && <span className="error">{errors.postalCode}</span>}
       </div>
-      <div className="form-group">
+      <div className="form-group wr-edit-form-input mb-4">
         <label htmlFor="nationality">Nationality:</label>
-        {/* <input
-          type="text"
-          id="nationality"
-          name="nationality"
-          value={formData.nationality}
-          onChange={handleChange}
-          placeholder="Nationality"
-        /> */}
         <select id="nationality" name="nationality" value={formData.nationality} onChange={handleChange}>
           <option value="German">German</option>
           <option value="Irish">Irish</option>
@@ -77,7 +64,7 @@ const EditUserDetailsAdditional = ({ formData, handleChange, errors }) => {
         </select>
         {errors.nationality && <span className="error">{errors.nationality}</span>}
       </div>
-      <div className="form-group">
+      <div className="form-group wr-edit-form-input mb-4">
         <label htmlFor="dateOfBirth">Date of Birth:</label>
         <input
           type="date"
@@ -85,10 +72,11 @@ const EditUserDetailsAdditional = ({ formData, handleChange, errors }) => {
           name="dateOfBirth"
           value={formData.dateOfBirth}
           onChange={handleChange}
+          className="additonal-detail-edit-form"
         />
         {errors.dateOfBirth && <span className="error">{errors.dateOfBirth}</span>}
       </div>
-      <div className="form-group">
+      <div className="form-group wr-edit-form-input mb-4">
         <label htmlFor="gender">Gender:</label>
         <select id="gender" name="gender" value={formData.gender} onChange={handleChange}>
           <option value="Male">Male</option>
@@ -96,7 +84,7 @@ const EditUserDetailsAdditional = ({ formData, handleChange, errors }) => {
         </select>
         {errors.gender && <span className="error">{errors.gender}</span>}
       </div>
-      <div className="form-group">
+      <div className="form-group wr-edit-form-input mb-4">
         <label htmlFor="maritalStatus">Marital Status:</label>
         <select id="maritalStatus" name="maritalStatus" value={formData.maritalStatus} onChange={handleChange}>
           <option value="Single">Single</option>

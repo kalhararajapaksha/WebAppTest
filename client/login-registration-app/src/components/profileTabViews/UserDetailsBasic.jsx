@@ -7,14 +7,14 @@ const UserDetailsBasic = ({ user }) => {
         <img src={user.profileImage} alt="Profile" className="img-thumbnail"/>
       </div>
       <div className="user-basic-details">
-        <h6 className="detail-title mb-5">Salutation<span>*</span></h6>
-        <p className="detail-data mb-1">{user.salutation}</p>
-        <h6 className="detail-title mb-5">First Name<span>*</span></h6>
-        <p className="detail-data mb-1">{user.firstName}</p>
-        <h6 className="detail-title mb-5">Last Name<span>*</span></h6>
-        <p className="detail-data mb-1">{user.lastName}</p>
-        <h6 className="detail-title mb-5">Email address<span>*</span></h6>
-        <p className="detail-data mb-1">{user.email}</p>
+        <h6 className="detail-title mb-1">Salutation<span>*</span></h6>
+        <p className="detail-data mb-3">{user.salutation}</p>
+        <h6 className="detail-title mb-1">First Name<span>*</span></h6>
+        <p className="detail-data mb-3">{user.firstName}</p>
+        <h6 className="detail-title mb-1">Last Name<span>*</span></h6>
+        <p className="detail-data mb-3">{user.lastName}</p>
+        <h6 className="detail-title mb-1">Email address<span>*</span></h6>
+        <p className="detail-data mb-3">{user.email}</p>
       </div>
     </div>
   );

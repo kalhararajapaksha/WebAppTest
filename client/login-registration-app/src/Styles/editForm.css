@@ -1,0 +1,125 @@
+.edit-form-wrapper {
+    display: flex;
+    margin-left: 3rem;
+}
+
+.edit-profile-btn {
+    display: flex;
+    position: absolute;
+    margin-left: 15rem !important;
+}
+
+.save-btn {
+    width: 120px;
+    border-radius: 0;
+    background-color: gray;
+    color: #fff;
+    border: none;
+}
+
+.cancel-btn {
+    width: 120px;
+    border-radius: 0;
+    background-color: transparent !important;
+    border: 2px solid black;
+    color: black;
+}
+
+.image-label {
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.image-text {
+    font-weight: 100;
+    text-decoration: none !important;
+    font-style: italic;
+}
+
+.image-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+} 
+
+.wr-edit-form-input {
+    display: flex;
+    flex-direction: column;
+    margin-left: 3rem;
+}
+
+.edit-form-input {
+    display: flex;
+    flex-direction: column;
+}
+
+#salutation {
+    width: 200px !important;
+    background-color: #D0D7E9;
+}
+
+.edit-form {
+    width: 200px !important;
+    background-color: #D0D7E9;
+    border-color: black;
+}
+
+.error {
+    position: absolute;
+    margin-top: 3.2rem;
+    color: red;
+    font-style: italic;
+}
+
+@media (max-width: 767.98px) {
+    .edit-form-wrapper {
+        flex-direction: column;
+        margin-top: 1rem;
+        margin-left: 0;
+    }
+
+    .image-wrapper {
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .wr-edit-form-input {
+        align-items: center;
+        margin-left: 0;
+    }
+
+    .edit-profile-btn  { 
+        display: flex;
+        justify-content: center;
+        margin-left: 0 !important;
+        position: relative;
+    }
+}
+
+/* Aditional details */
+
+.additonal-detail-edit-form {
+    max-width: 250px !important;
+    width: 100%;
+    background-color: #D0D7E9;
+    border-color: black;
+}
+
+#country,
+#nationality,
+#gender,
+#maritalStatus
+ {
+    max-width: 250px !important;
+    width: 100%;
+    background-color: #D0D7E9;
+    border-color: black;
+}
+
+
+@media (max-width: 767.98px) {
+    .additional-details-form {
+        margin-top: 2rem;
+    }
+}

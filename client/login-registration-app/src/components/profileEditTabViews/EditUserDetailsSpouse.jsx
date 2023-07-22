@@ -20,12 +20,13 @@ const EditUserDetailsSpouse = ({ formData, handleChange, errors }) => {
 
   return (
     <div>
-      <div className="form-group">
+      <div className="form-group wr-edit-form-input">
         <label htmlFor="spouseSalutation">Spouse Salutation:</label>
         <input
           type="text"
           id="spouseSalutation"
           name="spouseSalutation"
+          className="additonal-detail-edit-form"
           value={`${initialSpouseSalutation} ${formData.firstName} ${formData.lastName}`}
           readOnly 
         />
