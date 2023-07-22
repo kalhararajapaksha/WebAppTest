@@ -49,6 +49,10 @@
     color: black;
 }
 
+.edit-btn:hover {
+
+}
+
 @media (max-width: 767.98px) {
     .flex-column {
         /* display: contents;
