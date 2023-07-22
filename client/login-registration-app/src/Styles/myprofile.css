@@ -43,6 +43,12 @@
     color: black !important;
 }
 
+.edit-btn {
+    background-color: transparent !important;
+    border: none !important;
+    color: black;
+}
+
 @media (max-width: 767.98px) {
     .flex-column {
         /* display: contents;

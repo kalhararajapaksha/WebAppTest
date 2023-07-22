@@ -76,7 +76,7 @@ const Profile = () => {
         <div className="my-profile-header-content">
           <h1 className="profile profile-title">My Profile</h1>
           <div className="mt-4">
-            <button className="btn btn-primary" onClick={handleToggleEditMode}>
+            <button className="btn btn-primary edit-btn" onClick={handleToggleEditMode}>
               {isEditMode ? "Save Profile" : "Edit Profile"}
             </button>
           </div>
