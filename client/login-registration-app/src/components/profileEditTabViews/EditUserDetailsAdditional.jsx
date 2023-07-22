@@ -32,6 +32,7 @@ const EditUserDetailsAdditional = ({ formData, handleChange, errors }) => {
       <div className="form-group wr-edit-form-input mb-4">
         <label htmlFor="country">Country:</label>
           <select id="country" name="country" value={formData.country} onChange={handleChange}>
+          <option value="">Select</option>
           <option value="Germany">Germany</option>
           <option value="Ireland">Ireland</option>
           <option value="Italy">Italy</option>
@@ -56,6 +57,7 @@ const EditUserDetailsAdditional = ({ formData, handleChange, errors }) => {
       <div className="form-group wr-edit-form-input mb-4">
         <label htmlFor="nationality">Nationality:</label>
         <select id="nationality" name="nationality" value={formData.nationality} onChange={handleChange}>
+        <option value="">Select</option>
           <option value="German">German</option>
           <option value="Irish">Irish</option>
           <option value="Italian">Italian</option>
@@ -79,6 +81,7 @@ const EditUserDetailsAdditional = ({ formData, handleChange, errors }) => {
       <div className="form-group wr-edit-form-input mb-4">
         <label htmlFor="gender">Gender:</label>
         <select id="gender" name="gender" value={formData.gender} onChange={handleChange}>
+        <option value="">Select</option>
           <option value="Male">Male</option>
           <option value="Female">Female</option>
         </select>
@@ -87,6 +90,7 @@ const EditUserDetailsAdditional = ({ formData, handleChange, errors }) => {
       <div className="form-group wr-edit-form-input mb-4">
         <label htmlFor="maritalStatus">Marital Status:</label>
         <select id="maritalStatus" name="maritalStatus" value={formData.maritalStatus} onChange={handleChange}>
+          <option value="">Select</option>
           <option value="Single">Single</option>
           <option value="Married">Married</option>
         </select>

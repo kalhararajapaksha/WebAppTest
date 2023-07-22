@@ -11,25 +11,23 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 
 const EditProfile = () => {
-  const [formData, setFormData] = useState({
-    profileImage: '',
-    salutation: 'Mr.',
-    firstName: '',
-    lastName: '',
-    email: '',
-    mobileNumber: '',
-    homeAddress: '',
-    country: 'Germany',
-    postalCode: '',
-    nationality: 'German',
-    dateOfBirth: '',
-    gender: 'Male',
-    maritalStatus: 'Single',
-    hobbies: '',
-    favoriteSports: '',
-    musicGenres: '',
-    favoriteMovies: '',
-  });
+  const [formData, setFormData] = useState({profileImage: 'https://firebasestorage.googleapis.com/v0/b/reactapp-fa184.appspot.com/o/emptydp.jpg?alt=media',
+  salutation: '',
+  firstName: '',
+  lastName: '',
+  email: '',
+  mobileNumber: '',
+  homeAddress: '',
+  country: '',
+  postalCode: '',
+  nationality: '',
+  dateOfBirth: '',
+  gender: '',
+  maritalStatus: '',
+  hobbies: '',
+  favoriteSports: '',
+  musicGenres: '',
+  favoriteMovies: '',});
 
   const [errors, setErrors] = useState({});
 
@@ -37,24 +35,26 @@ const EditProfile = () => {
     try {
       const response = await fetchData(userId);
       const userData = response.data;
-      console.log(userData);
       setFormData(userData); 
     } catch (error) {
       console.error('Error fetching user data:', error);
      
     }
   };
-  useEffect(() => {
 
-    const currentUser = firebase.auth().currentUser;
-    if (currentUser) {
-      const userId = currentUser.uid;
+useEffect(() => {
+  const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      const userId = user.uid;
       fetchUserData(userId);
     } else {
-      console.log('User is not logged in.'); 
+      console.log('User is not logged in.');
     }
+  });
 
-  }, []);
+  return () => unsubscribe();
+}, []);
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -97,8 +97,21 @@ const EditProfile = () => {
       newErrors.postalCode = 'Postal Code is required';
     }
 
-
-
+    if (!formData.salutation) {
+      newErrors.salutation = 'Please select salutation';
+    }
+    if (!formData.country) {
+      newErrors.country = 'Please select country';
+    }
+    if (!formData.nationality) {
+      newErrors.nationality = 'Please select nationality';
+    }
+    if (!formData.gender) {
+      newErrors.gender = 'Please select gender';
+    }
+    if (!formData.maritalStatus) {
+      newErrors.maritalStatus = 'Please select marital status';
+    }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0; 
   };
@@ -136,13 +149,34 @@ const EditProfile = () => {
   };
   
   const handleCancel = () => {
-    handleChange(false);
+    setFormData({profileImage: 'https://firebasestorage.googleapis.com/v0/b/reactapp-fa184.appspot.com/o/emptydp.jpg?alt=media',
+    salutation: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    mobileNumber: '',
+    homeAddress: '',
+    country: '',
+    postalCode: '',
+    nationality: '',
+    dateOfBirth: '',
+    gender: '',
+    maritalStatus: '',
+    hobbies: '',
+    favoriteSports: '',
+    musicGenres: '',
+    favoriteMovies: '',}); 
   };
 
   return (
     <MainLayout>
       <div>
-        <h1>Edit Profile</h1>
+        <div className="my-profile-header-content">
+          <h1 className="profile profile-title">Edit Profile</h1>
+        <div className="mt-4">
+            <a href="/profile">Go back to My profile</a>
+        </div>
+      </div>
         <TabView maritalStatus={formData.maritalStatus}>
           <TabView.Tab label="Basic Details">
             <EditUserDetailsBasic formData={formData} handleChange={handleChange} errors={errors} />

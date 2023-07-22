@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { MdSettingsPhone } from "react-icons/md";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 const Contacts = () => {
   const [contacts, setContacts] = useState([]);
@@ -24,40 +25,37 @@ const Contacts = () => {
   }, []);
 
   useEffect(() => {
-    applyFilters();
-  }, [genderFilter, nationalityFilter]);
+    applyFiltersAndPagination();
+  }, [genderFilter, nationalityFilter, currentPage, contacts]);
 
-  useEffect(() => {
-    applyPagination();
-  }, [currentPage, contacts]);
-
-  const applyFilters = () => {
+  const applyFiltersAndPagination = () => {
     let filteredItems = contacts;
-
+    // if (nationalityFilter === 'all') {
+    //   fetchContacts();
+    // }
     if (genderFilter !== 'all') {
       filteredItems = filteredItems.filter((contact) => contact.gender === genderFilter);
+      
     }
 
     if (nationalityFilter !== 'all') {
       filteredItems = filteredItems.filter((contact) => contact.nat === nationalityFilter);
     }
 
-    setFilteredContacts(filteredItems);
-    setCurrentPage(1); 
-  };
-
-  const applyPagination = () => {
+    //setContacts(filteredItems);
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
-    setFilteredContacts(contacts.slice(startIndex, endIndex));
+    setFilteredContacts(filteredItems.slice(startIndex, endIndex));
   };
 
   const handleGenderFilterChange = (event) => {
     setGenderFilter(event.target.value);
+    setCurrentPage(1); 
   };
 
   const handleNationalityFilterChange = (event) => {
     setNationalityFilter(event.target.value);
+    setCurrentPage(1);
   };
 
   const handlePaginationChange = (pageNumber) => {
@@ -81,11 +79,10 @@ const Contacts = () => {
           <option value="CA">CA</option>
         </select>
       </div>
-      {/* Contacts list */}
       <div className="row row-cols-1 row-cols-md-3 g-4 contact-card-content">
         {filteredContacts.map((contact, index) => (
           <div key={index} className="col">
-            <div className="card contact-card">
+          <div className="card contact-card">
               <div className="image-wrapper">
                 <img src={contact.picture.large} className="card-img-top" alt={contact.name.first} />
               </div>
@@ -103,12 +100,22 @@ const Contacts = () => {
       {/* Pagination */}
       {contacts.length > itemsPerPage && (
         <nav aria-label="Contacts Pagination">
-          <ul className="pagination justify-content-center  my-3">
+          <ul className="pagination justify-content-center my-3">
+            <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
+              <button className="page-link" onClick={() => handlePaginationChange(currentPage - 1)} disabled={currentPage === 1}>
+                <FontAwesomeIcon icon={faChevronLeft} />
+              </button>
+            </li>
             {Array.from({ length: Math.ceil(contacts.length / itemsPerPage) }).map((_, index) => (
               <li key={index} className={`page-item ${currentPage === index + 1 ? 'active' : ''}`}>
                 <button className="page-link" onClick={() => handlePaginationChange(index + 1)}>{index + 1}</button>
               </li>
             ))}
+            <li className={`page-item ${currentPage === Math.ceil(contacts.length / itemsPerPage) ? 'disabled' : ''}`}>
+              <button className="page-link" onClick={() => handlePaginationChange(currentPage + 1)} disabled={currentPage === Math.ceil(contacts.length / itemsPerPage)}>
+                <FontAwesomeIcon icon={faChevronRight} />
+              </button>
+            </li>
           </ul>
         </nav>
       )}

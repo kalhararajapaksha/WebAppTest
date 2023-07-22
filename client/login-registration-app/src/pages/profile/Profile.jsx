@@ -12,7 +12,7 @@ import "firebase/compat/auth";
 const Profile = () => {
   const [isEditMode, setIsEditMode] = useState(false);
   const [user, setUser] = useState({
-    profileImage: '',
+    profileImage: 'https://firebasestorage.googleapis.com/v0/b/reactapp-fa184.appspot.com/o/emptydp.jpg?alt=media',
     salutation: '',
     firstName: '',
     lastName: '',
@@ -25,11 +25,6 @@ const Profile = () => {
     dateOfBirth: '',
     gender: '',
     maritalStatus: '',
-    spouseDetails: {
-      salutation: 'Mrs.',
-      firstName: 'Jane',
-      lastName: 'Doe',
-    },
     hobbies: '',
     favoriteSports: '',
     musicGenres: '',
@@ -47,17 +42,19 @@ const Profile = () => {
      
     }
   };
-  useEffect(() => {
 
-    const currentUser = firebase.auth().currentUser;
-    if (currentUser) {
-      const userId = currentUser.uid;
+useEffect(() => {
+  const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      const userId = user.uid;
       fetchUserData(userId);
     } else {
-      console.log('User is not logged in.'); 
+      console.log('User is not logged in.');
     }
+  });
 
-  }, []);
+  return () => unsubscribe();
+}, []);
 
   const handleToggleEditMode = () => {
     setIsEditMode((prevEditMode) => !prevEditMode);
@@ -76,9 +73,10 @@ const Profile = () => {
         <div className="my-profile-header-content">
           <h1 className="profile profile-title">My Profile</h1>
           <div className="mt-4">
-            <button className="btn btn-primary edit-btn" onClick={handleToggleEditMode}>
+            <a href="/edit-profile">Edit profile</a>
+            {/* <button className="btn btn-primary edit-btn" onClick={handleToggleEditMode}>
               {isEditMode ? "Save Profile" : "Edit Profile"}
-            </button>
+            </button> */}
           </div>
         </div>
         <div className="profile-data-wrapper mt-3">

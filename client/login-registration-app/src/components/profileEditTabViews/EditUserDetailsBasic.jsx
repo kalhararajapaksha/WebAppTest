@@ -66,10 +66,14 @@ const EditUserDetailsBasic = ({ formData, handleChange, errors }) => {
               onChange={handleChange}
               style={{ widows: '200px' }}
             >
+               <option value="">Select</option>
               <option value="Mr.">Mr.</option>
               <option value="Ms.">Ms.</option>
               <option value="Mrs.">Mrs.</option>
             </select>
+            {errors.salutation && (
+              <span className="error">{errors.salutation}</span>
+            )}
           </div>
           
           <div className="form-group edit-form-input mb-4">
