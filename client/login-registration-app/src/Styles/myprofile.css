@@ -1,0 +1,63 @@
+.my-profile-header-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-basic-details-wrapper {
+    margin-left: 3rem;
+    display: flex;
+}
+
+.user-basic-details {
+    margin-left: 3rem;
+}
+
+.img-thumbnail {
+    width: 100px;
+    height: 100px;
+}
+
+.detail-image-wrapper {
+    display: flex;
+}
+
+.detail-title {
+    font-weight: 700;
+}
+
+.detail-data {
+    font-weight: 100;
+}
+
+.tab-nav-link {
+    text-align: left;
+    color: black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-radius: 0 !important;
+}
+
+.nav-pills .nav-link.active{
+    background-color: transparent !important;
+    font-weight: 700;
+    color: black !important;
+}
+
+@media (max-width: 767.98px) {
+    .flex-column {
+        /* display: contents;
+        width: 0; */
+    }
+
+    .tab-pills {
+        margin-top: 2rem;
+        flex-direction: column !important;
+        text-align: left;
+    }
+
+    .user-basic-details-wrapper {
+        margin-left: 0;
+        margin-top: 1rem;
+        justify-content: space-around;
+    }
+}

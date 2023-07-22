@@ -2,25 +2,24 @@ import React from 'react';
 
 const UserDetailsAdditional = ({ user }) => {
   return (
-    <div>
-      {/* */}
-      <div>
-        <h6>Mobile Number<span>*</span></h6>
-        <p> {user.mobileNumber}</p>
-        <h6>Home Address<span>*</span></h6>
-        <p> {user.homeAddress}</p>
-        <h6>Country<span>*</span></h6>
-        <p> {user.country}</p>
-        <h6>Postal code<span>*</span></h6>
-        <p>{user.postalCode}</p>
-        <h6>Nationality<span>*</span></h6>
-        <p> {user.nationality}</p>
-        <h6>Date of Birth</h6>
-        <p> {user.dateOfBirth}</p>
-        <h6>Gender</h6>
-        <p> {user.gender}</p>
-        <h6>Marital Status</h6>
-        <p>{user.maritalStatus}</p>
+    <div className="user-basic-details">
+      <div className="mt-2">
+        <h6 className="detail-title mb-5">Mobile Number<span>*</span></h6>
+        <p className="detail-data mb-1"> {user.mobileNumber}</p>
+        <h6 className="detail-title mb-5">Home Address<span>*</span></h6>
+        <p className="detail-data mb-1"> {user.homeAddress}</p>
+        <h6 className="detail-title mb-5">Country<span>*</span></h6>
+        <p className="detail-data mb-1"> {user.country}</p>
+        <h6 className="detail-title mb-5">Postal code<span>*</span></h6>
+        <p className="detail-data mb-1">{user.postalCode}</p>
+        <h6 className="detail-title mb-5">Nationality<span>*</span></h6>
+        <p className="detail-data mb-1"> {user.nationality}</p>
+        <h6 className="detail-title mb-5">Date of Birth</h6>
+        <p className="detail-data mb-1"> {user.dateOfBirth}</p>
+        <h6 className="detail-title mb-5">Gender</h6>
+        <p className="detail-data mb-1"> {user.gender}</p>
+        <h6 className="detail-title mb-5">Marital Status</h6>
+        <p className="detail-data mb-1">{user.maritalStatus}</p>
       </div>
     </div>
   );

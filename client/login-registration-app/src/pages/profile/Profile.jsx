@@ -71,30 +71,33 @@ const Profile = () => {
   const isMarried = user.maritalStatus === 'Married';
 
   return (
-    <MainLayout>
-    <div>
-      <h1>My Profile</h1>
-      <TabView maritalStatus={user.maritalStatus}>
-        <TabView.Tab label="Basic Details">
-          <UserDetailsBasic user={user} />
-        </TabView.Tab>
-        <TabView.Tab label="Additional Details">
-         <UserDetailsAdditional user={user} />
-        </TabView.Tab>
-        <TabView.Tab label="Spouse Details" showWhen={() => isMarried}>
-          <UserDetailsSpouse user={user} />
-        </TabView.Tab>
-        <TabView.Tab label="Personal Preferences">
-          <UserDetailsPreferences user={user} />
-        </TabView.Tab>
-      </TabView>
-
-      <div className="mt-4">
-        <button className="btn btn-primary" onClick={handleToggleEditMode}>
-          {isEditMode ? 'Save Profile' : 'Edit Profile'}
-        </button>
+    <MainLayout className="mainlayout">
+      <div>
+        <div className="my-profile-header-content">
+          <h1 className="profile profile-title">My Profile</h1>
+          <div className="mt-4">
+            <button className="btn btn-primary" onClick={handleToggleEditMode}>
+              {isEditMode ? "Save Profile" : "Edit Profile"}
+            </button>
+          </div>
+        </div>
+        <div className="profile-data-wrapper mt-3">
+          <TabView maritalStatus={user.maritalStatus}>
+            <TabView.Tab label="Basic Details">
+              <UserDetailsBasic user={user} />
+            </TabView.Tab>
+            <TabView.Tab label="Additional Details">
+              <UserDetailsAdditional user={user} />
+            </TabView.Tab>
+            <TabView.Tab label="Spouse Details" showWhen={() => isMarried}>
+              <UserDetailsSpouse user={user} />
+            </TabView.Tab>
+            <TabView.Tab label="Personal Preferences">
+              <UserDetailsPreferences user={user} />
+            </TabView.Tab>
+          </TabView>
+        </div>
       </div>
-    </div>
     </MainLayout>
   );
 };

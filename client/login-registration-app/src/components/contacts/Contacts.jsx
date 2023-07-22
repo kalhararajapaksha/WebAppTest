@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { MdSettingsPhone } from "react-icons/md";
 
 const Contacts = () => {
   const [contacts, setContacts] = useState([]);
@@ -64,17 +65,16 @@ const Contacts = () => {
   };
 
   return (
-    <div>
-      {/* Filtering options */}
-      <div>
-        <label>Gender:</label>
-        <select value={genderFilter} onChange={handleGenderFilterChange}>
+    <div className="contact-page-wrapper">
+      <div className="contact-filter mb-5 mt-3">
+        <label className="me-2 filter-label">Gender:</label>
+        <select value={genderFilter} onChange={handleGenderFilterChange} className="select-menu">
           <option value="all">All</option>
           <option value="male">Male</option>
           <option value="female">Female</option>
         </select>
-        <label>Nationality:</label>
-        <select value={nationalityFilter} onChange={handleNationalityFilterChange}>
+        <label className="me-2 ms-2 filter-label">Nationality:</label>
+        <select value={nationalityFilter} onChange={handleNationalityFilterChange} className="select-menu">
           <option value="all">All</option>
           <option value="AU">AU</option>
           <option value="BR">BR</option>
@@ -82,16 +82,18 @@ const Contacts = () => {
         </select>
       </div>
       {/* Contacts list */}
-      <div className="row row-cols-1 row-cols-md-3 g-4">
+      <div className="row row-cols-1 row-cols-md-3 g-4 contact-card-content">
         {filteredContacts.map((contact, index) => (
           <div key={index} className="col">
-            <div className="card">
-              <img src={contact.picture.large} className="card-img-top" alt={contact.name.first} />
+            <div className="card contact-card">
+              <div className="image-wrapper">
+                <img src={contact.picture.large} className="card-img-top" alt={contact.name.first} />
+              </div>
               <div className="card-body">
                 <h5 className="card-title">{`${contact.name.first} ${contact.name.last}`}</h5>
-                <p className="card-text">{contact.email}</p>
+                <p className="card-text card-email">{contact.email}</p>
                 <p className="card-text">{contact.phone}</p>
-                <p className="card-text">{contact.location.street.number} {contact.location.street.name}</p>
+                <p className="card-text location-name">{contact.location.street.number} {contact.location.street.name}</p>
                 <p className="card-text">{`${contact.location.city}, ${contact.location.state}, ${contact.location.country}, ${contact.location.postcode}`}</p>
               </div>
             </div>
@@ -101,7 +103,7 @@ const Contacts = () => {
       {/* Pagination */}
       {contacts.length > itemsPerPage && (
         <nav aria-label="Contacts Pagination">
-          <ul className="pagination justify-content-center">
+          <ul className="pagination justify-content-center  my-3">
             {Array.from({ length: Math.ceil(contacts.length / itemsPerPage) }).map((_, index) => (
               <li key={index} className={`page-item ${currentPage === index + 1 ? 'active' : ''}`}>
                 <button className="page-link" onClick={() => handlePaginationChange(index + 1)}>{index + 1}</button>

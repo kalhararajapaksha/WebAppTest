@@ -8,13 +8,13 @@ const TabView = ({ children,maritalStatus  }) => {
   };
 
   return (
-    <div className="d-flex">
+    <div className="d-flex tab-pills">
       <div className="nav flex-column nav-pills" style={{ minWidth: '200px' }}>
         {React.Children.map(children, (child, index) => (
           maritalStatus === 'Single' && child.props.label === 'Spouse Details' ? null : (
             <button
               key={index}
-              className={`nav-link ${activeTab === index ? 'active' : ''}`}
+              className={`nav-link tab-nav-link ${activeTab === index ? 'active' : ''}`}
               onClick={() => handleTabChange(index)}
             >
               {child.props.label}

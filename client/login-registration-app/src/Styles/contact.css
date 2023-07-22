@@ -1,0 +1,105 @@
+.wr-contact-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact-title {
+   font-weight: 100; 
+}
+
+.contact-title-bold {
+    font-weight: 500;
+}
+
+.contact-hr {
+    width: 100%;
+}
+
+.contact-hr-line {
+    border: 1px solid #000;
+    position: relative;
+    margin-top: 2rem ;
+}
+
+.contact-filter {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.filter-label {
+    font-weight: 500;
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap-reverse;
+}
+
+.select-menu {
+    padding: 8px 15px;
+    width: 150px;
+    background-color: #D0D7E9;
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+.select-menu:focus {
+    border: none;
+}
+
+.contact-card {
+    min-height: 150px;
+    height: 100%;
+    border-bottom: 5px solid gray;
+    border-top: 5px solid gray;
+    box-shadow: 0px 10px 20px -10px rgba(53, 53, 53, 0.75);
+}
+
+.card-img-top {
+    max-width: 150px;
+    width: 100%;
+    margin-top: 1rem;
+    border-radius: 100%;
+}
+
+.card-email {
+    text-align: center;
+    color: #4F82EA !important;
+    text-decoration: underline;
+}
+
+.image-wrapper {
+    display: flex;
+    justify-content: center; 
+}
+
+.card-title {
+    text-align: center;
+}
+
+.card-text {
+    color: #263042;
+}
+
+.pagination   {
+    --bs-pagination-border: none !important;
+    --bs-pagination-bg: none !important;
+    --bs-pagination-color: black !important;
+    --bs-pagination-active-bg: none !important;
+    --bs-pagination-active-color: black !important;
+}
+
+.page-link  {
+    border: none !important;
+    font-weight: 100;
+    text-decoration: underline;
+}
+
+.active>.page-link {
+    font-weight: 700 !important;
+    text-decoration: none;
+}
+
+@media (max-width: 767.98px) { 
+    .contact-filter {
+        flex-direction: column;
+    }
+}

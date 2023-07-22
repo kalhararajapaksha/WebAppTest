@@ -2,19 +2,19 @@ import React from 'react';
 
 const UserDetailsBasic = ({ user }) => {
   return (
-    <div>
-      <div className="mb-4">
-        <img src={user.profileImage} alt="Profile" className="img-thumbnail" style={{ cursor: 'pointer', width: '200px', height: '200px' }}/>
+    <div className="user-basic-details-wrapper">
+      <div className="mb-4 detail-image-wrapper">
+        <img src={user.profileImage} alt="Profile" className="img-thumbnail"/>
       </div>
-      <div>
-        <h6>Salutation<span>*</span></h6>
-        <p>{user.salutation}</p>
-        <h6>First Name<span>*</span></h6>
-        <p>{user.firstName}</p>
-        <h6>Last Name<span>*</span></h6>
-        <p>{user.lastName}</p>
-        <h6>Email address<span>*</span></h6>
-        <p>{user.email}</p>
+      <div className="user-basic-details">
+        <h6 className="detail-title mb-5">Salutation<span>*</span></h6>
+        <p className="detail-data mb-1">{user.salutation}</p>
+        <h6 className="detail-title mb-5">First Name<span>*</span></h6>
+        <p className="detail-data mb-1">{user.firstName}</p>
+        <h6 className="detail-title mb-5">Last Name<span>*</span></h6>
+        <p className="detail-data mb-1">{user.lastName}</p>
+        <h6 className="detail-title mb-5">Email address<span>*</span></h6>
+        <p className="detail-data mb-1">{user.email}</p>
       </div>
     </div>
   );

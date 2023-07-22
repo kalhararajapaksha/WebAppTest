@@ -2,6 +2,8 @@
  @import './Styles/home.css';
  @import './Styles/loginForm.css';
  @import './Styles/RegistrationForm.css';
+ @import './Styles/contact.css';
+ @import './Styles/myprofile.css';
  
  body {
     background-image: url('../public/jj-ying-7JX0-bfiuxQ-unsplash.jpg');
