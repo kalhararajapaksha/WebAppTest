@@ -1,6 +1,7 @@
  @import './Styles/global.css';
  @import './Styles/home.css';
  @import './Styles/loginForm.css';
+ @import './Styles/RegistrationForm.css';
  
  body {
     background-image: url('../public/jj-ying-7JX0-bfiuxQ-unsplash.jpg');

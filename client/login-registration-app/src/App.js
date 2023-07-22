@@ -31,7 +31,14 @@ const App = () => {
 
   return (
     <>
-     <ToastContainer />
+     <ToastContainer 
+     className="react-toaster"
+      position="bottom-center"
+      autoClose={5000}
+      hideProgressBar={false}
+      closeOnClick
+      rtl={false}
+     />
       <BrowserRouter>
         <RouterConfig />
       </BrowserRouter>

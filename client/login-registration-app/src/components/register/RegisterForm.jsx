@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { registerUser } from '../../services/api';
+import {  toast } from 'react-toastify';
 
 const RegisterForm = () => {
   const [name, setName] = useState('');
@@ -14,19 +15,19 @@ const RegisterForm = () => {
 
     const emailRegex = /^\S+@\S+\.\S+$/;
     if (!emailRegex.test(email)) {
-      setErrorMessage('Please enter a valid email address.');
+      toast.error('Please enter a valid email address.');
       return;
     }
 
 
     if (password.length < 8) {
-      setErrorMessage('Password must have at least 8 characters.');
+      toast.error('Password must have at least 8 characters.');
       return;
     }
 
   
     if (password !== confirmPassword) {
-      setErrorMessage('Passwords do not match.');
+      toast.error('Passwords do not match.');
       return;
     }
 
@@ -41,24 +42,26 @@ const RegisterForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="my-5">
+    <form onSubmit={handleSubmit} className="my-5 registration-form-wrapper">
       <h2 className="mb-4">Register</h2>
 
       {errorMessage && <div className="alert alert-danger" role="alert">{errorMessage}</div>}
 
-      <div className="mb-3">
-        <label htmlFor="email" className="form-label">Email:</label>
+      <div className="mb-3 wr-registration-input">
+        <label htmlFor="email" className="form-label me-3">Email :</label>
         <input  className="form-control" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
       </div>
-      <div className="mb-3">
-        <label htmlFor="password" className="form-label">Password:</label>
+      <div className="mb-3 wr-registration-input">
+        <label htmlFor="password" className="form-label me-3">Password :</label>
         <input type="password" className="form-control" id="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
       </div>
-      <div className="mb-3">
-        <label htmlFor="confirmPassword" className="form-label">Confirm Password:</label>
+      <div className="mb-3 wr-registration-input">
+        <label htmlFor="confirmPassword" className="form-label me-3">Confirm Password :</label>
         <input type="password" className="form-control" id="confirmPassword" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
       </div>
-      <button type="submit" className="btn btn-primary">Register</button>
+      <div className="registration-btn-wrapper mt-3">
+        <button type="submit" className="btn btn-primary registration-btn">Register</button>
+      </div>
     </form>
   );
 };

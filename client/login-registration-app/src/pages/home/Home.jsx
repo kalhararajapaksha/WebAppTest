@@ -11,21 +11,32 @@ const Home = ({ onLogin, onRegister }) => {
   };
 
   return (
-    <HomeLayout>
-    <div className="home-container"> {/* Use the "home-container" class */}
-      <h1 className="home-heading">Welcome to <strong>myApp</strong></h1> {/* Use the "home-heading" class */}
-      <div>
-        {showRegisterForm ? (
-          <RegisterForm onRegister={onRegister} />
-        ) : (
-          <LoginForm onLogin={onLogin} />
-        )}
-        <a onClick={toggleRegisterForm} className="register-text">
-          <p>No account? {showRegisterForm ? 'Login Instead' : 'Register Instead'}</p>
-        </a>
-      </div>
-    </div>
-    </HomeLayout>
+    <>
+      <header></header>
+      <HomeLayout>
+        <div className="home-container">
+          {" "}
+          {/* Use the "home-container" class */}
+          <h1 className="home-heading">
+            Welcome to <strong>myApp</strong>
+          </h1>{" "}
+          {/* Use the "home-heading" class */}
+          <div>
+            {showRegisterForm ? (
+              <RegisterForm onRegister={onRegister} />
+            ) : (
+              <LoginForm onLogin={onLogin} />
+            )}
+            <a onClick={toggleRegisterForm} className="register-text">
+              <p>
+                No account?{" "}
+                {showRegisterForm ? "Login Instead" : "Register Instead"}
+              </p>
+            </a>
+          </div>
+        </div>
+      </HomeLayout>
+    </>
   );
 };
 

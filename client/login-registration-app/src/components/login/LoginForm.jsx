@@ -52,15 +52,15 @@ const LoginForm = () => {
     <form onSubmit={handleSubmit} className="my-5">
       <h2 className="mb-4 login-text">Login</h2>
       <div className="mb-3 email-text-wrapper">
-        <label htmlFor="email" className="form-label me-3">Email:</label>
+        <label htmlFor="email" className="form-label me-3">Email :</label>
         <input type="email" className="form-control" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
       </div>
       <div className="mt-3 email-text-wrapper">
-        <label htmlFor="password" className="form-label me-3">Password:</label>
+        <label htmlFor="password" className="form-label me-3">Password :</label>
         <input type="password" className="form-control" id="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
       </div>
-      <div className="mb-3 form-check">
-        <input type="checkbox" className="form-check-input" id="keepLoggedIn" checked={keepLoggedIn} onChange={(e) => setKeepLoggedIn(e.target.checked)} />
+      <div className="mb-3 mt-3 form-check keep me login-form">
+        <input type="checkbox" className="form-check-input me-2" id="keepLoggedIn" checked={keepLoggedIn} onChange={(e) => setKeepLoggedIn(e.target.checked)} />
         <label className="form-check-label" htmlFor="keepLoggedIn">Keep me logged in</label>
       </div>
       <div className="login-btn-wrapper">

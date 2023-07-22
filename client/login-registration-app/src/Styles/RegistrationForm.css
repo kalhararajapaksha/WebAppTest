@@ -1,0 +1,17 @@
+.wr-registration-input {
+    display: flex;
+    justify-content: space-between;
+}
+
+.registration-btn-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.registration-btn {
+    background-color: black;
+    color: #fff;
+    border: none;
+    border-radius: 0 !important;
+    width: 100px;
+}
