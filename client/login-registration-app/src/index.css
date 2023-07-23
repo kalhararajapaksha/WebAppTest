@@ -5,6 +5,7 @@
  @import './Styles/contact.css';
  @import './Styles/myprofile.css';
  @import './Styles/editForm.css';
+ @import './Styles/nav.css';
  
  body {
     background-image: url('../public/jj-ying-7JX0-bfiuxQ-unsplash.jpg');

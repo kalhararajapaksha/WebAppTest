@@ -9,6 +9,8 @@ import { saveUser } from '../../services/api';
 import { fetchData } from '../../services/api';
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
+import {  toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
 
 const EditProfile = () => {
   const [formData, setFormData] = useState({profileImage: 'https://firebasestorage.googleapis.com/v0/b/reactapp-fa184.appspot.com/o/emptydp.jpg?alt=media',
@@ -118,11 +120,11 @@ useEffect(() => {
   const saveUserToFirestore = async (userObject) => {
     try {
       const response = await saveUser({ userObject });
-      console.log(response.data);
-      const userId = response.data;
       console.log('User saved to Firestore with ID:');
+      toast.success("Saved successfully!")
       
     } catch (error) {
+      toast.error("Network Error!")
       console.error('Error saving user to Firestore edu:', error);
     
     }
@@ -141,9 +143,11 @@ useEffect(() => {
         
         saveUserToFirestore(formDataWithUserId);
       } else {
+        
         console.log('User is not logged in.'); 
       }
     } else {
+      toast.error('Please fill in the required fields correctly.');
       console.log('Please fill in the required fields correctly.');
     }
   };
@@ -174,7 +178,7 @@ useEffect(() => {
         <div className="my-profile-header-content">
           <h1 className="profile profile-title">Edit Profile</h1>
         <div className="mt-4">
-            <a href="/profile">Go back to My profile</a>
+        <Link to="/profile" className="">Go back to My profile</Link>
         </div>
       </div>
         <TabView maritalStatus={formData.maritalStatus}>

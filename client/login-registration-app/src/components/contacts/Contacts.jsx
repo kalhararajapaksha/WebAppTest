@@ -30,22 +30,17 @@ const Contacts = () => {
 
   const applyFiltersAndPagination = () => {
     let filteredItems = contacts;
-    // if (nationalityFilter === 'all') {
-    //   fetchContacts();
-    // }
+  
     if (genderFilter !== 'all') {
       filteredItems = filteredItems.filter((contact) => contact.gender === genderFilter);
-      
     }
-
+  
     if (nationalityFilter !== 'all') {
       filteredItems = filteredItems.filter((contact) => contact.nat === nationalityFilter);
     }
-
-    //setContacts(filteredItems);
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    setFilteredContacts(filteredItems.slice(startIndex, endIndex));
+    
+    // Update the filteredContacts with the filtered items
+    setFilteredContacts(filteredItems);
   };
 
   const handleGenderFilterChange = (event) => {
@@ -55,12 +50,15 @@ const Contacts = () => {
 
   const handleNationalityFilterChange = (event) => {
     setNationalityFilter(event.target.value);
-    setCurrentPage(1);
+    setCurrentPage(1); 
   };
 
   const handlePaginationChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
+
+  // Calculate the total number of pages based on the filtered contacts
+  const totalPages = Math.ceil(filteredContacts.length / itemsPerPage);
 
   return (
     <div className="contact-page-wrapper">
@@ -79,10 +77,13 @@ const Contacts = () => {
           <option value="CA">CA</option>
         </select>
       </div>
+      {/* Contacts list */}
       <div className="row row-cols-1 row-cols-md-3 g-4 contact-card-content">
-        {filteredContacts.map((contact, index) => (
-          <div key={index} className="col">
-          <div className="card contact-card">
+        {filteredContacts
+          .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
+          .map((contact, index) => (
+            <div key={index} className="col">
+                       <div className="card contact-card">
               <div className="image-wrapper">
                 <img src={contact.picture.large} className="card-img-top" alt={contact.name.first} />
               </div>
@@ -94,11 +95,11 @@ const Contacts = () => {
                 <p className="card-text">{`${contact.location.city}, ${contact.location.state}, ${contact.location.country}, ${contact.location.postcode}`}</p>
               </div>
             </div>
-          </div>
-        ))}
+            </div>
+          ))}
       </div>
       {/* Pagination */}
-      {contacts.length > itemsPerPage && (
+      {totalPages > 1 && (
         <nav aria-label="Contacts Pagination">
           <ul className="pagination justify-content-center my-3">
             <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
@@ -106,13 +107,13 @@ const Contacts = () => {
                 <FontAwesomeIcon icon={faChevronLeft} />
               </button>
             </li>
-            {Array.from({ length: Math.ceil(contacts.length / itemsPerPage) }).map((_, index) => (
+            {Array.from({ length: totalPages }).map((_, index) => (
               <li key={index} className={`page-item ${currentPage === index + 1 ? 'active' : ''}`}>
                 <button className="page-link" onClick={() => handlePaginationChange(index + 1)}>{index + 1}</button>
               </li>
             ))}
-            <li className={`page-item ${currentPage === Math.ceil(contacts.length / itemsPerPage) ? 'disabled' : ''}`}>
-              <button className="page-link" onClick={() => handlePaginationChange(currentPage + 1)} disabled={currentPage === Math.ceil(contacts.length / itemsPerPage)}>
+            <li className={`page-item ${currentPage === totalPages ? 'disabled' : ''}`}>
+              <button className="page-link" onClick={() => handlePaginationChange(currentPage + 1)} disabled={currentPage === totalPages}>
                 <FontAwesomeIcon icon={faChevronRight} />
               </button>
             </li>

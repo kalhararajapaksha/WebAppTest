@@ -8,6 +8,7 @@ import MainLayout from '../../layout/MainLayout';
 import { fetchData } from '../../services/api';
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
+import { Link } from 'react-router-dom';
 
 const Profile = () => {
   const [isEditMode, setIsEditMode] = useState(false);
@@ -73,7 +74,8 @@ useEffect(() => {
         <div className="my-profile-header-content">
           <h1 className="profile profile-title">My Profile</h1>
           <div className="mt-4">
-            <a href="/edit-profile">Edit profile</a>
+          <Link to="/edit-profile" className="">Edit profile</Link>
+            {/* <a href="/edit-profile">Edit profile</a> */}
             {/* <button className="btn btn-primary edit-btn" onClick={handleToggleEditMode}>
               {isEditMode ? "Save Profile" : "Edit Profile"}
             </button> */}

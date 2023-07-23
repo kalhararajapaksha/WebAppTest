@@ -39,8 +39,9 @@ const LoginForm = () => {
     e.preventDefault();
     try {
       await firebase.auth().signInWithEmailAndPassword(email, password);
-      if (keepLoggedIn) {      
       toast.success("Successfully Loggin")
+      if (keepLoggedIn) {      
+      
       }
       navigate(`/dashboard`);
     } catch (error) {

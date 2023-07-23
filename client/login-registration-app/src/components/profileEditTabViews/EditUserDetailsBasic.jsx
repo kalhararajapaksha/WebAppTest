@@ -5,30 +5,70 @@ import "firebase/compat/auth";
 import { toast } from "react-toastify";
 
 const EditUserDetailsBasic = ({ formData, handleChange, errors }) => {
+  // const handleImageChange = async (e) => {
+  //   const file = e.target.files[0];
+  //   toast.info("Wait..");
+  //   const currentUser = firebase.auth().currentUser;
+  //   if (!currentUser) {
+  //     toast.error("User is not authenticated.");
+  //     return;
+  //   }
+  //   const userToken = currentUser.uid;
+
+  //   uploadImage(file, userToken)
+  //     .then((response) => {
+  //       toast.info("Done");
+  //       console.log(response.data);
+  //       const imageUrl = response.data.imageUrl;
+  //       handleChange({
+  //         target: {
+  //           name: "profileImage",
+  //           value: imageUrl,
+  //         },
+  //       });
+  //     })
+  //     .catch((error) => {
+  //       toast.error("Error uploading the image:", error);
+  //     });
+  // };
   const handleImageChange = async (e) => {
     const file = e.target.files[0];
-
-    const currentUser = firebase.auth().currentUser;
-    if (!currentUser) {
-      toast.error("User is not authenticated.");
-      return;
+  
+    try {
+      toast.promise(
+        new Promise((resolve, reject) => {
+          const currentUser = firebase.auth().currentUser;
+          if (!currentUser) {
+            reject("User is not authenticated.");
+            return;
+          }
+  
+          const userToken = currentUser.uid;
+          uploadImage(file, userToken)
+            .then((response) => {
+              console.log(response.data);
+              const imageUrl = response.data.imageUrl;
+              handleChange({
+                target: {
+                  name: "profileImage",
+                  value: imageUrl,
+                },
+              });
+              resolve("Image uploaded successfully!");
+            })
+            .catch((error) => {
+              reject(`Error uploading the image: ${error}`);
+            });
+        }),
+        {
+          pending: "Wait...",
+          // info: "Done!",
+          error: (errorMsg) => errorMsg,
+        }
+      );
+    } catch (error) {
+      console.log(error);
     }
-    const userToken = currentUser.uid;
-
-    uploadImage(file, userToken)
-      .then((response) => {
-        console.log(response.data);
-        const imageUrl = response.data.imageUrl;
-        handleChange({
-          target: {
-            name: "profileImage",
-            value: imageUrl,
-          },
-        });
-      })
-      .catch((error) => {
-        toast.error("Error uploading the image:", error);
-      });
   };
 
   return (

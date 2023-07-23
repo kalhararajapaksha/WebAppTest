@@ -1,6 +1,99 @@
-.navbar-container {
+/* .navbar-container {
     display: none;
     justify-content: space-between;
     flex-direction: column;
     align-items: unset !important;
-}
+} */
+
+/* @media only screen and (min-width: 992px) {
+    .navbar-expand-lg .navbar-toggler {
+        display: inline-block;
+    }
+
+    .navbar-expand-lg .navbar-collapse {
+        flex-basis: 100%;
+        flex-grow: 1;
+        align-items: center;
+        display: block;
+    
+    }
+
+    .collapse:not(.show) {
+        display: none !important;
+    }
+} */
+
+/* Navbar.css */
+/* Navbar.css */
+/* Navbar.css */
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: transparent;
+    color: white;
+    position: relative;
+  }
+  
+  .logo a {
+    flex: 1;
+    font-size: 24px;
+    width: fit-content;
+  }
+  .container {
+    position: relative; 
+  }
+  .drawer {
+    position: absolute;
+    top: 50px; /* Adjust the top distance as needed */
+    right: 1px; /* Adjust the right distance as needed */
+    background-color: rgba(0, 0, 0, 0.9); /* Adjust the background color and opacity as needed */
+    border-radius: 5px;
+    padding: 10px;
+    display: none;
+    z-index: 1;
+  }
+  
+  .navbar-link {
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 1;
+    
+  }
+  
+  .line {
+    width: 100%;
+    height: 2px;
+    background-color: black; /* Change the color to black */
+    transition: all 0.3s ease;
+  }
+  
+  .line-open.line1 {
+    transform: rotate(-45deg) translate(-5px, 5px);
+    background-color: blue; /* Change the color to black */
+  }
+  
+  .line-open.line2 {
+    opacity: 0;   
+  }
+  
+  .line-open.line3 {
+    transform: rotate(45deg) translate(-5px, -5px);
+    background-color: blue; /* Change the color to black */
+  }
+  
+  .drawer.open {
+    display: block;
+  }
+  
